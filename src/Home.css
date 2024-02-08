@@ -1,0 +1,50 @@
+#homePage nav {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+#homePage nav h1 {
+  font-size: 40px;
+}
+
+#homePage nav ul {
+  display: flex;
+  gap: 40px;
+  margin-left: 90px;
+  font-size: 22px;
+}
+
+#homePage header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 50%;
+  margin: 100px auto;
+  gap: 50px;
+  background: gray;
+}
+
+#homePage header input {
+  height: 60px;
+  padding: 10px;
+  font-size: 25px;
+}
+
+#homePage main {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#homePage main .pokeCard {
+  display: flex;
+  justify-content: space-around;
+  background: lightgray;
+  width: 28%;
+  height: 220px;
+}
