@@ -1,0 +1,127 @@
+.normalCard {
+  background: #c5c9d6;
+  box-shadow: 5px 5px 50px 5px #c5c9d6;
+}
+.fightingCard {
+  background: #eb4971;
+  box-shadow: 0 5px 40px 0 #eb4971;
+}
+.flyingCard {
+  background: #829edb;
+  box-shadow: 0 5px 40px 0 #829edb;
+}
+.poisonCard {
+  background: #c68ee7;
+  box-shadow: 0 5px 40px 0 #c68ee7;
+}
+.groundCard {
+  background: #f1b361;
+  box-shadow: 0 5px 40px 0 #f1b361;
+}
+.rockCard {
+  background: #ccbdb8;
+  box-shadow: 0 5px 40px 0 #ccbdb8;
+}
+.bugCard {
+  background: #93d897;
+  box-shadow: 0 5px 40px 0 #93d897;
+}
+.ghostCard {
+  background: #ad8ee7;
+  box-shadow: 0 5px 40px 0 #ad8ee7;
+}
+.steelCard {
+  background: #52b1b8;
+  box-shadow: 0 5px 40px 0 #52b1b8;
+}
+.fireCard {
+  background: #f59958;
+  box-shadow: 0 5px 40px 0 #f59958;
+}
+.waterCard {
+  background: #75bfff;
+  box-shadow: 0 5px 40px 0 #75bfff;
+}
+.grassCard {
+  background: #96d195;
+  box-shadow: 0 5px 40px 0 #96d195;
+}
+.electricCard {
+  background: #f2cb55;
+  box-shadow: 0 5px 40px 0 #f2cb55;
+}
+.psychicCard {
+  background: #ff8080;
+  box-shadow: 0 5px 40px 0 #ff8080;
+}
+.iceCard {
+  background: #68daca;
+  box-shadow: 0 5px 40px 0 #68daca;
+}
+.dragonCard {
+  background: #1582e7;
+  box-shadow: 0 5px 40px 0 #1582e7;
+}
+.darkCard {
+  background: #6b687e;
+  box-shadow: 0 5px 40px 0 #6b687e;
+}
+.fairyCard {
+  background: #e98acc;
+  box-shadow: 0 5px 40px 0 #e98acc;
+}
+
+.normal {
+  background: #a0a29f;
+}
+.fighting {
+  background: #d3425f;
+}
+.flying {
+  background: #b1ceff;
+}
+.poison {
+  background: #c96de4;
+}
+.ground {
+  background: #f08855;
+}
+.rock {
+  background: #ddce98;
+}
+.bug {
+  background: #a1cf30;
+}
+.ghost {
+  background: #6878cf;
+}
+.steel {
+  background: #5fa4b3;
+}
+.fire {
+  background: #ffb654;
+}
+.water {
+  background: #5badf5;
+}
+.grass {
+  background: #68d061;
+}
+.electric {
+  background: #f8d405;
+}
+.psychic {
+  background: #ff928e;
+}
+.ice {
+  background: #81e5d4;
+}
+.dragon {
+  background: #0d74dc;
+}
+.dark {
+  background: #62606b;
+}
+.fairy {
+  background: #f8bbd0;
+}
