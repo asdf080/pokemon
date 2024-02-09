@@ -17,23 +17,26 @@
 
 #homePage header {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  text-align: center;
-  width: 50%;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 90%;
+  max-width: 700px;
   margin: 100px auto;
-  gap: 50px;
-  background: gray;
 }
 
-#homePage header input {
-  height: 60px;
-  padding: 10px;
-  font-size: 25px;
+#homePage header button {
+  font-size: 24px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
 }
 
 #homePage main {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   gap: 40px;
@@ -43,8 +46,125 @@
 
 #homePage main .pokeCard {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   background: lightgray;
-  width: 28%;
+  width: 90%;
+  max-width: 600px;
   height: 220px;
+}
+
+#homePage main .pokeCard .cardTxt {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0 40px 20px;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+
+#homePage main .pokeCard .cardTxt .txtId {
+  font-size: 18px;
+}
+
+#homePage main .pokeCard .cardTxt .txtName {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#homePage main .pokeCard .cardTxt .txtType {
+  display: flex;
+  gap: 10px;
+}
+#homePage main .pokeCard .cardTxt .txtType p {
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+.normal {
+  background: #a0a29f;
+}
+.fighting {
+  background: #d3425f;
+}
+.flying {
+  background: #b1ceff;
+}
+.poison {
+  background: #c96de4;
+}
+.ground {
+  background: #f08855;
+}
+.rock {
+  background: #ddce98;
+}
+.bug {
+  background: #a1cf30;
+}
+.ghost {
+  background: #6878cf;
+}
+.steel {
+  background: #5fa4b3;
+}
+.fire {
+  background: #ffb654;
+}
+.water {
+  background: #5badf5;
+}
+.grass {
+  background: #68d061;
+}
+.eletric {
+  background: #ffd600;
+}
+.psychic {
+  background: #ff928e;
+}
+.ice {
+  background: #81e5d4;
+}
+.dragon {
+  background: #0d74dc;
+}
+.dark {
+  background: #62606b;
+}
+.fairy {
+  background: #f8bbd0;
+}
+
+#homePage main .pokeCard img {
+  align-self: center;
+  width: 150px;
+}
+
+@media screen and (min-width: 550px) {
+  #homePage main .pokeCard img {
+    align-self: end;
+    width: 250px;
+  }
+}
+@media screen and (min-width: 550px) {
+  #homePage main .pokeCard .cardTxt {
+    padding: 40px;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  #homePage main {
+    width: 90%;
+  }
+  #homePage main .pokeCard {
+    width: 47%;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  #homePage main .pokeCard {
+    width: 30%;
+    max-width: none;
+  }
 }
