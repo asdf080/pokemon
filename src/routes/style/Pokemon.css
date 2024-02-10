@@ -1,3 +1,7 @@
+#pokeDetail {
+  padding: 0 10px;
+}
+
 #pokeDetail h2,
 #pokeDetail h3,
 #pokeDetail h4 {
@@ -34,16 +38,15 @@
 }
 
 #pokeDetail article#detail1 img {
-  flex-basis: 25%;
-  max-width: 95%;
+  max-width: 35%;
+  height: auto;
 }
 
 #pokeDetail article#detail1 #leftTxtWrap {
   display: grid;
-  /* grid-template-columns: 0.5fr 0.5fr; */
-  gap: 10px 15px;
+  grid-template-columns: 0.5fr 1fr;
+  gap: 20px 15px;
   align-items: center;
-  flex-basis: 25%;
 }
 
 article#detail1 #leftTxtWrap .leftTit,
@@ -56,6 +59,7 @@ article#detail1 #leftTxtWrap .leftTxt {
   display: flex;
   flex-wrap: wrap;
   gap: 5px 10px;
+  max-width: 200px;
 }
 
 article#detail1 #leftTxtWrap .leftTxt .typeIcon {
@@ -108,7 +112,7 @@ article#detail1 #rightTxtWrap h3 {
   margin-left: 10px;
 }
 
-article#detail1 #rightTxtWrap > div {
+article#detail1 #rightTxtWrap .progWrap {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 30px;
@@ -125,7 +129,7 @@ article#detail1 #rightTxtWrap .progress {
   width: 210px;
   height: 16px;
   background: #ddd;
-  margin: 5px 0 20px;
+  margin: 5px 0 25px;
   border-radius: 5px;
   align-self: start;
 }
@@ -140,6 +144,12 @@ article#detail1 #rightTxtWrap .progress > div {
   background: linear-gradient(45deg, lightcoral 25%, rgba(240, 128, 128, 0.7) 0, rgba(240, 128, 128, 0.7) 50%, lightcoral 0, lightcoral 75%, rgba(240, 128, 128, 0.7) 0);
   -webkit-background-size: 30px 30px;
   background-size: 30px 30px;
+}
+
+article#detail2 {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
 }
 
 article#detail2 .underWrap {
@@ -165,30 +175,47 @@ article#detail2 .underWrap .underTxt {
   #pokeDetail article#detail1 {
     flex-direction: row;
     justify-content: center;
+    margin-top: 10px;
   }
 
-  #pokeDetail #leftTxtWrap {
+  #pokeDetail article#detail1 #leftTxtWrap {
+    grid-template-columns: 100px 300px;
     will-change: transform;
     transform: perspective(450px) rotateY(30deg);
     transition: transform 0.3s;
   }
 
-  #pokeDetail #leftTxtWrap:hover {
+  #pokeDetail article#detail1 #leftTxtWrap:hover {
     transform: rotateY(0);
   }
 
-  #pokeDetail #leftTxtWrap .leftTxt {
-    max-width: 320px;
-  }
-
-  #pokeDetail #rightTxtWrap {
+  #pokeDetail article#detail1 #rightTxtWrap {
     will-change: transform;
     transform: perspective(450px) rotateY(-30deg);
     transition: transform 0.3s;
-    flex-basis: 25%;
+    display: grid;
   }
 
-  #pokeDetail #rightTxtWrap:hover {
+  #pokeDetail article#detail1 #rightTxtWrap #rightTxtWrapInner {
+    justify-self: end;
+    margin-right: 10%;
+  }
+
+  #pokeDetail article#detail1 #rightTxtWrap:hover {
     transform: rotateY(0);
+  }
+
+  article#detail1 #rightTxtWrap #rightTxtWrapInner {
+    display: inline-block;
+  }
+
+  #pokeDetail article#detail1 img,
+  #pokeDetail article#detail1 #leftTxtWrap,
+  #pokeDetail #rightTxtWrap {
+    flex-basis: 29%;
+  }
+
+  article#detail1 #leftTxtWrap .leftTxt {
+    max-width: 250px;
   }
 }
