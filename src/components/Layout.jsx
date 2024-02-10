@@ -15,7 +15,7 @@ export default function Layout({ children }) {
         </ul>
       </nav>
       {children}
-      <footer>footer</footer>
+      <footer></footer>
     </>
   );
 }

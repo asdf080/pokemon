@@ -1,16 +1,5 @@
 body {
-  background: #eee;
-}
-
-#mainLoad {
-  z-index: 100;
-  width: 90vw;
-  height: 40vh;
-  background: #eee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
+  /* background: #eee; */
 }
 
 #homePage header {

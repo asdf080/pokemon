@@ -35,9 +35,7 @@ export default function home() {
           try {
             const data = await apiGetPokes({ endpoint: `pokemon-species/${item.id}` });
             return data;
-          } catch (error) {
-            return {};
-          }
+          } catch (error) {}
         },
       })) ?? [],
   });
@@ -103,7 +101,7 @@ export default function home() {
           </button>
         </header>
         {기본정보로딩중 ? (
-          <div id="mainLoad">
+          <div className="mainLoad">
             <Loader color="#f2cb55" height={30} margin={20} radius={10} width={10} />
           </div>
         ) : (

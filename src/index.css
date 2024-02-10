@@ -15,3 +15,13 @@ a {
 ul {
   list-style: none;
 }
+
+.mainLoad {
+  z-index: 100;
+  width: 90vw;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
