@@ -106,24 +106,27 @@ export default function home() {
           </div>
         ) : (
           <main>
-            {기본정보?.map((item, index) => (
-              <Link key={index} to={`/pokemon/${item.id}`}>
-                <div className={`pokeCard ${item.types[0]?.type.name}Card`}>
-                  <div className="cardTxt">
-                    <div>
-                      <p className="txtId">#{item.id}</p>
-                      <p className="txtName">{세부정보?.[index].names?.find((item) => item.language.name === "ko")?.name || item.name}</p>
+            {기본정보?.map(
+              (item, index) =>
+                item.id < 906 && (
+                  <Link key={index} to={`/pokemon/${item.id}`}>
+                    <div className={`pokeCard ${item.types[0]?.type.name}Card`}>
+                      <div className="cardTxt">
+                        <div>
+                          <p className="txtId">#{item.id}</p>
+                          <p className="txtName">{세부정보?.[index].names?.find((item) => item.language.name === "ko")?.name || item.name}</p>
+                        </div>
+                        <div className="txtType">
+                          <p className={item.types[0]?.type.name}>{item.types[0]?.type.name}</p>
+                          <p className={item.types[1]?.type.name || ""}>{item.types[1]?.type.name || ""}</p>
+                        </div>
+                      </div>
+                      <img src={item.sprites.other[`official-artwork`]?.front_default || item.sprites.other[`dream_world`]?.front_default || ""} alt={item.name} />
+                      <div className="back"></div>
                     </div>
-                    <div className="txtType">
-                      <p className={item.types[0]?.type.name}>{item.types[0]?.type.name}</p>
-                      <p className={item.types[1]?.type.name || ""}>{item.types[1]?.type.name || ""}</p>
-                    </div>
-                  </div>
-                  <img src={item.sprites.other[`official-artwork`]?.front_default || item.sprites.other[`dream_world`]?.front_default || ""} alt={item.name} />
-                  <div className="back"></div>
-                </div>
-              </Link>
-            ))}
+                  </Link>
+                )
+            )}
           </main>
         )}
       </section>
