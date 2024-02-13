@@ -95,13 +95,17 @@ body {
   background-size: 14px 14px;
 }
 
+@media screen and (max-width: 550px) {
+  #homePage main .pokeCard {
+    height: 190px;
+  }
+}
+
 @media screen and (min-width: 550px) {
   #homePage main .pokeCard img {
     align-self: end;
     width: 250px;
   }
-}
-@media screen and (min-width: 550px) {
   #homePage main .pokeCard .cardTxt {
     padding: 40px;
   }

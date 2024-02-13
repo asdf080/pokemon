@@ -47,6 +47,7 @@
   min-width: 450px;
   max-width: 35%;
   height: auto;
+  margin: 20px 0;
 }
 
 #pokeDetail article#detail1 #leftTxtWrap {
@@ -57,7 +58,7 @@
 }
 
 article#detail1 #leftTxtWrap .leftTit,
-article#detail2 .underWrap .underTxt .underTit {
+article#detail3 .underWrap .underTxt .underTit {
   justify-self: end;
   font-weight: 600;
 }
@@ -70,7 +71,7 @@ article#detail1 #leftTxtWrap .leftTxt {
 }
 
 article#detail1 #leftTxtWrap .leftTxt .typeIcon {
-  padding: 2px 7px;
+  padding: 2px 7px 4px;
   border-radius: 5px;
   font-weight: bold;
   color: white;
@@ -158,29 +159,49 @@ article#detail1 #rightTxtWrap .progress > div {
   background-size: 30px 30px;
 }
 
-article#detail2 {
+article#detail2 h5 {
+  text-align: center;
+  font-size: 27px;
+  font-weight: 500;
+}
+
+article#detail2 .evolWrap {
+  display: flex;
+}
+
+article#detail2 .evolWrap img {
+  width: 200px;
+}
+
+article#detail3 {
   display: flex;
   justify-content: center;
   gap: 50px;
 }
 
-article#detail2 .underWrap {
+article#detail3 .underWrap {
   max-width: 400px;
   margin: 50px 0;
+  text-transform: capitalize;
 }
 
-article#detail2 .underWrap h5 {
+article#detail3 .underWrap h5 {
   text-align: center;
   font-size: 24px;
   font-weight: 500;
   margin-bottom: 10px;
 }
 
-article#detail2 .underWrap .underTxt {
+article#detail3 .underWrap .underTxt {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px 15px;
   font-size: 17px;
+}
+
+article#detail3 .underWrap .underTxt .underflex {
+  display: flex;
+  gap: 10px;
 }
 
 @media screen and (min-width: 1060px) {
@@ -188,6 +209,10 @@ article#detail2 .underWrap .underTxt {
     flex-direction: row;
     justify-content: center;
     margin-top: 10px;
+  }
+
+  #pokeDetail article#detail1 img {
+    margin: none;
   }
 
   #pokeDetail article#detail1 #leftTxtWrap {

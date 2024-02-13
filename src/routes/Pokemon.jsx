@@ -1,21 +1,34 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Layout from "../components/Layout";
 import { useParams } from "react-router-dom";
 import { useQuery, useQueries } from "@tanstack/react-query";
 import { apiGetPokes } from "../utils/api";
+import switchColor from "../utils/switchColor";
 import Loader from "react-spinners/FadeLoader";
 import "./style/Pokemon.css";
 
 export default function Pokemon() {
+  console.clear();
   const { id } = useParams();
   const { data: 기본정보, isLoading: 기본로딩중 } = useQuery({ queryKey: ["pokeInfo", id], queryFn: () => apiGetPokes({ endpoint: `pokemon/${id}` }) });
-  const { data: 세부정보, isLoading: 세부로딩중 } = useQuery({ queryKey: ["pokeInfo2", id], queryFn: () => apiGetPokes({ endpoint: `pokemon-species/${id}` }) });
+  const { data: 세부정보 } = useQuery({ queryKey: ["pokeInfo2", id], queryFn: () => apiGetPokes({ endpoint: `pokemon-species/${id}` }) });
   // const [sprImg, setSprImg] = useState(null);
   const { data: 성별정보 } = useQuery({
     queryKey: ["pokeInfo3", id],
     queryFn: () => apiGetPokes({ endpoint: `gender/1` }),
   });
-  const 성비 = ((성별정보?.pokemon_species_details?.find((item) => item?.pokemon_species?.name === 기본정보?.name)?.rate / 8) * 100).toFixed(1);
+  const { data: 진화정보 } = useQuery({
+    queryKey: ["pokeInfo4", id],
+    queryFn: async () => {
+      try {
+        const data = await fetch(세부정보?.evolution_chain?.url).then((res) => res.json());
+        return data;
+      } catch (error) {}
+    },
+  });
+
+  let 성비 = ((성별정보?.pokemon_species_details?.find((item) => item?.pokemon_species?.name === 기본정보?.name)?.rate / 8) * 100).toFixed(1);
+  성비 = `${성비}`.endsWith(".0") ? 성비.slice(0, -2) : 성비;
 
   // useEffect(() => {
   //   if (!기본로딩중 && 기본정보) {
@@ -40,10 +53,6 @@ export default function Pokemon() {
   //   }
   // };
 
-  const 최대스탯 = 기본정보?.stats?.reduce((max, item) => Math.max(max, item.base_stat), 0);
-
-  console.log(세부정보);
-
   const abilityQueries = useQueries({
     queries:
       기본정보?.abilities?.map((item) => ({
@@ -56,53 +65,17 @@ export default function Pokemon() {
         },
       })) ?? [],
   });
-
   const 특성 = abilityQueries?.map((result) => result.data ?? {});
 
-  switch (세부정보?.color?.name) {
-    case "red":
-      document.documentElement.style.setProperty("--mainColor", "#ff8a80");
-      document.documentElement.style.setProperty("--mainColor2", "#ff9b93");
-      document.documentElement.style.setProperty("--mainColor3", "#d6a29d");
-      break;
+  const 최대스탯 = 기본정보?.stats?.reduce((max, item) => Math.max(max, item.base_stat), 0);
+  const 이미지주소 = (id) => {
+    return `https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/${id.padStart(3, "0")}.png`;
+  };
 
-    case "white":
-      document.documentElement.style.setProperty("--mainColor", "#c3d4e5");
-      document.documentElement.style.setProperty("--mainColor2", "#d0d6e1");
-      document.documentElement.style.setProperty("--mainColor3", "#bfc1c5");
-      break;
-    case "green":
-      document.documentElement.style.setProperty("--mainColor", "#81C784");
-      document.documentElement.style.setProperty("--mainColor2", "#94cf96");
-      document.documentElement.style.setProperty("--mainColor3", "#badbbb");
-      break;
-    case "blue":
-      document.documentElement.style.setProperty("--mainColor", "#81D4FA");
-      document.documentElement.style.setProperty("--mainColor2", "#bee5ee");
-      document.documentElement.style.setProperty("--mainColor3", "#b3e0eb");
-      break;
-    case "yellow":
-      document.documentElement.style.setProperty("--mainColor", "#F2CB55");
-      document.documentElement.style.setProperty("--mainColor2", "#f1e984");
-      document.documentElement.style.setProperty("--mainColor3", "#efe56f");
-      break;
-    case "purple":
-      document.documentElement.style.setProperty("--mainColor", "#AD8EE7");
-      document.documentElement.style.setProperty("--mainColor2", "#b4a3d4");
-      document.documentElement.style.setProperty("--mainColor3", "#b4a3d4");
-      break;
-    case "pink":
-      document.documentElement.style.setProperty("--mainColor", "#E98ACC");
-      document.documentElement.style.setProperty("--mainColor2", "#f39ebb");
-      document.documentElement.style.setProperty("--mainColor3", "#F8BBD0");
-      break;
+  switchColor(세부정보?.color?.name);
 
-    default:
-      document.documentElement.style.setProperty("--mainColor", "#BCAAA4");
-      document.documentElement.style.setProperty("--mainColor2", "#cfc5c5");
-      document.documentElement.style.setProperty("--mainColor3", "#c7bbbb");
-      break;
-  }
+  console.log(세부정보);
+  console.log(진화정보);
 
   return (
     <Layout>
@@ -116,7 +89,6 @@ export default function Pokemon() {
           <h3>
             <span>{세부정보?.genera?.find((item) => item.language?.name == "ko")?.genus || "???"}</span>
           </h3>
-
           <article id="detail1">
             <div id="leftTxtWrap">
               <div className="leftTit">ID</div>
@@ -147,7 +119,7 @@ export default function Pokemon() {
                 ))}
               </div>
             </div>
-            <img key={id} src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/${id.padStart(3, "0")}.png`} alt="artwork" />
+            <img key={id} src={`${이미지주소(id)}`} alt="artwork" />
             <div id="rightTxtWrap">
               <div id="rightTxtWrapInner">
                 {기본정보?.stats?.map((item, index) => (
@@ -167,6 +139,24 @@ export default function Pokemon() {
           </article>
           <h4>{세부정보?.flavor_text_entries?.find((item) => item.language.name === "ko")?.flavor_text}</h4>
           <article id="detail2">
+            <h5>진화 단계</h5>
+            <div className="evolWrap">
+              <div>
+                <p>
+                  <img
+                    src={`${이미지주소(
+                      진화정보?.chain.species.url
+                        ?.split("/")
+                        .filter((a) => a)
+                        .pop()
+                    )}`}
+                    alt="evolution1"
+                  />
+                </p>
+              </div>
+            </div>
+          </article>
+          <article id="detail3">
             <div className="underWrap">
               <h5>세부 정보</h5>
               <div className="underTxt">
@@ -188,7 +178,7 @@ export default function Pokemon() {
                 <div className="underTit">기초 경험치</div>
                 <div className="">{기본정보?.base_experience}</div>
                 <div className="underTit">알 그룹</div>
-                <div>
+                <div className="underflex">
                   {세부정보?.egg_groups.map((item, index) => (
                     <p key={index}>{item.name}</p>
                   ))}
@@ -198,7 +188,7 @@ export default function Pokemon() {
                 <div className="underTit">성장 속도</div>
                 <div>{세부정보?.growth_rate.name}</div>
                 <div className="underTit">성비</div>
-                <div>
+                <div className="underflex">
                   <p>{성비}%</p>
                   <p>{100 - 성비}%</p>
                 </div>
