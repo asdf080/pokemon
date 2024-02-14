@@ -159,27 +159,16 @@ article#detail1 #rightTxtWrap .progress > div {
   background-size: 30px 30px;
 }
 
-article#detail2 h5 {
-  text-align: center;
-  font-size: 27px;
-  font-weight: 500;
-}
-
-article#detail2 .evolWrap {
-  display: flex;
-}
-
-article#detail2 .evolWrap img {
-  width: 200px;
-}
-
 article#detail3 {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 50px;
+  flex-direction: column;
 }
 
 article#detail3 .underWrap {
+  min-width: 200px;
   max-width: 400px;
   margin: 50px 0;
   text-transform: capitalize;
@@ -187,7 +176,7 @@ article#detail3 .underWrap {
 
 article#detail3 .underWrap h5 {
   text-align: center;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 500;
   margin-bottom: 10px;
 }
@@ -196,12 +185,42 @@ article#detail3 .underWrap .underTxt {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px 15px;
-  font-size: 17px;
+  font-size: 19px;
 }
 
 article#detail3 .underWrap .underTxt .underflex {
   display: flex;
   gap: 10px;
+}
+
+article#detail3 .underWrap .underList {
+  font-size: 20px;
+}
+
+article#detail3 .underWrap .underList li {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid lightgray;
+  align-items: center;
+  padding: 10px 10px 5px 30px;
+  min-width: 300px;
+}
+
+article#detail3 .underWrap .underList li .typesleft {
+  min-width: 37px;
+}
+
+article#detail3 .underWrap .underList li .typesWrap {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.underList li .typesWrap img {
+  width: 35px;
+  padding: 6px;
+  border-radius: 50%;
 }
 
 @media screen and (min-width: 1060px) {
@@ -257,6 +276,11 @@ article#detail3 .underWrap .underTxt .underflex {
   }
 
   #pokeDetail article#detail1 img {
+    width: 100%;
     min-width: 150px;
+  }
+
+  article#detail3 {
+    flex-direction: row;
   }
 }

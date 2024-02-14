@@ -17,13 +17,15 @@ export default function Pokemon() {
     queryKey: ["pokeInfo3", id],
     queryFn: () => apiGetPokes({ endpoint: `gender/1` }),
   });
-  const { data: 진화정보 } = useQuery({
+  const { data: 상성정보 } = useQuery({
     queryKey: ["pokeInfo4", id],
     queryFn: async () => {
       try {
-        const data = await fetch(세부정보?.evolution_chain?.url).then((res) => res.json());
+        const data = await fetch(기본정보?.types?.[1].type.url || 기본정보?.types?.[0].type.url).then((res) => res.json());
         return data;
-      } catch (error) {}
+      } catch (error) {
+        console.log(기본정보?.types?.[1].url || 기본정보?.types?.[0].url);
+      }
     },
   });
 
@@ -69,13 +71,12 @@ export default function Pokemon() {
 
   const 최대스탯 = 기본정보?.stats?.reduce((max, item) => Math.max(max, item.base_stat), 0);
   const 이미지주소 = (id) => {
-    return `https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/${id.padStart(3, "0")}.png`;
+    return `https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/${id?.padStart(3, "0")}.png`;
   };
 
   switchColor(세부정보?.color?.name);
 
-  console.log(세부정보);
-  console.log(진화정보);
+  console.log(기본정보);
 
   return (
     <Layout>
@@ -95,7 +96,7 @@ export default function Pokemon() {
               <div className="leftTxt">#{id}</div>
               <div className="leftTit">키·체중</div>
               <div className="leftTxt">
-                {기본정보?.height * 10}cm &nbsp;&nbsp; {기본정보?.weight}kg
+                {기본정보?.height * 10}cm &nbsp;&nbsp; {기본정보?.weight / 10}kg
               </div>
               <div className="leftTit">특성</div>
               <div className="leftTxt">
@@ -138,24 +139,6 @@ export default function Pokemon() {
             </div>
           </article>
           <h4>{세부정보?.flavor_text_entries?.find((item) => item.language.name === "ko")?.flavor_text}</h4>
-          <article id="detail2">
-            <h5>진화 단계</h5>
-            <div className="evolWrap">
-              <div>
-                <p>
-                  <img
-                    src={`${이미지주소(
-                      진화정보?.chain.species.url
-                        ?.split("/")
-                        .filter((a) => a)
-                        .pop()
-                    )}`}
-                    alt="evolution1"
-                  />
-                </p>
-              </div>
-            </div>
-          </article>
           <article id="detail3">
             <div className="underWrap">
               <h5>세부 정보</h5>
@@ -163,7 +146,7 @@ export default function Pokemon() {
                 <div className="underTit">소지 아이템</div>
                 <div>{기본정보?.held_items?.[0]?.item?.name || "없음"}</div>
                 <div className="underTit">서식지</div>
-                <div>{세부정보?.habitat?.name}</div>
+                <div>{세부정보?.habitat?.name || "-"}</div>
                 <div className="underTit">색상</div>
                 <div>{세부정보?.color?.name}</div>
                 <div className="underTit">친밀도</div>
@@ -193,6 +176,35 @@ export default function Pokemon() {
                   <p>{100 - 성비}%</p>
                 </div>
               </div>
+            </div>
+            <div className="underWrap">
+              <h5>방어 상성</h5>
+              <ul className="underList">
+                <li>
+                  <div className="typesleft">0x</div>
+                  <div className="typesWrap">
+                    {상성정보?.damage_relations?.no_damage_from?.map((item) => (
+                      <img key={item.name} className={`${item.name} typeIcon2`} src={`/type/${item.name}.png`} alt={item.name} />
+                    ))}
+                  </div>
+                </li>
+                <li>
+                  <div className="typesleft">0.5x</div>
+                  <div className="typesWrap">
+                    {상성정보?.damage_relations?.half_damage_from?.map((item) => (
+                      <img key={item.name} className={`${item.name} typeIcon2`} src={`/type/${item.name}.png`} alt={item.name} />
+                    ))}
+                  </div>
+                </li>
+                <li>
+                  <div className="typesleft">2x</div>
+                  <div className="typesWrap">
+                    {상성정보?.damage_relations?.double_damage_from?.map((item) => (
+                      <img key={item.name} className={`${item.name} typeIcon2`} src={`/type/${item.name}.png`} alt={item.name} />
+                    ))}
+                  </div>
+                </li>
+              </ul>
             </div>
           </article>
         </section>
