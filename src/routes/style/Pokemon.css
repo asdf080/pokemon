@@ -5,6 +5,7 @@
 }
 
 #pokeDetail {
+  margin: 50px 0 0;
   padding: 0 10px;
 }
 
@@ -240,6 +241,9 @@ article#detail3 .underWrap .underList li .typesWrap {
 }
 
 @media screen and (min-width: 1060px) {
+  #pokeDetail {
+    margin: 0;
+  }
   #pokeDetail article#detail1 {
     flex-direction: row;
     justify-content: center;

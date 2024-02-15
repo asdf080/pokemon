@@ -162,7 +162,7 @@ export default function Pokemon() {
                 <div className="underTit">알 그룹</div>
                 <div className="underflex">
                   {세부정보?.egg_groups.map((item, index) => (
-                    <p key={index}>{item.name}</p>
+                    <p key={index}>{item.name === "no-eggs" ? "-" : item.name}</p>
                   ))}
                 </div>
                 <div className="underTit">부화 카운트</div>
@@ -171,8 +171,8 @@ export default function Pokemon() {
                 <div>{세부정보?.growth_rate.name}</div>
                 <div className="underTit">성비</div>
                 <div className="underflex">
-                  <p>{성비}%</p>
-                  <p>{100 - 성비}%</p>
+                  <p>{isNaN(성비) ? "-" : 성비}%</p>
+                  <p>{isNaN(100 - 성비) ? "-" : 100 - 성비}%</p>
                 </div>
               </div>
             </div>

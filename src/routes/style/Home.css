@@ -8,7 +8,7 @@ body {
   flex-wrap: wrap;
   gap: 10px;
   width: 90%;
-  max-width: 700px;
+  max-width: 750px;
   margin: 100px auto;
 }
 
@@ -20,6 +20,9 @@ body {
   cursor: pointer;
   color: white;
   font-weight: bold;
+}
+#homePage header button.star {
+  color: #ff9800;
 }
 
 #homePage main {

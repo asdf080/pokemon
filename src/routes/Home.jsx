@@ -88,8 +88,8 @@ export default function home() {
             {기본정보?.map(
               (item, index) =>
                 item.id < 906 && (
-                  <motion.div id="pokeCardWrap" variants={pokeCardItem}>
-                    <Link key={index} to={`/pokemon/${item.id}`}>
+                  <motion.div id="pokeCardWrap" variants={pokeCardItem} key={index}>
+                    <Link to={`/pokemon/${item.id}`}>
                       <div className={`pokeCard ${item.types[0]?.type.name}Card`}>
                         <div className="cardTxt">
                           <div>
