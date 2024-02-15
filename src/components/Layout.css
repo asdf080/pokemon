@@ -1,11 +1,15 @@
 nav {
   display: flex;
   align-items: center;
-  padding: 10px 20px;
+  padding: 0 20px;
+  text-transform: uppercase;
+  height: 73px;
 }
 
-nav h1 {
+nav h1 a {
+  color: #fec20c;
   font-size: 40px;
+  font-family: "KBO-Dia-Gothic_bold";
 }
 
 nav ul {
@@ -13,4 +17,53 @@ nav ul {
   gap: 40px;
   margin-left: 90px;
   font-size: 22px;
+}
+
+nav ul li {
+  border-bottom: 3px solid transparent;
+  padding: 2px 7px 4px;
+  transition: all 0.2s;
+  position: relative;
+}
+
+nav ul li.active::after {
+  position: absolute;
+  display: block;
+  content: " ";
+  width: 95%;
+  height: 3px;
+  left: 3%;
+  background: #fec20c;
+}
+
+nav ul li:hover::after {
+  position: absolute;
+  display: block;
+  content: " ";
+  width: 95%;
+  height: 3px;
+  left: 3%;
+  background: #fec20c;
+  animation: navLine 0.3s;
+}
+
+@keyframes navLine {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 95%;
+  }
+}
+
+nav ul li a {
+  color: #222;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "KBO-Dia-Gothic_bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KBO-Dia-Gothic_bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
 }

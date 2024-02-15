@@ -5,6 +5,7 @@ import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
 import Home from "./routes/Home.jsx";
 import Pokemon from "./routes/Pokemon.jsx";
+import Games from "./routes/Games.jsx";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "pokemon/:id",
         element: <Pokemon />,
+      },
+      {
+        path: "games",
+        element: <Games />,
       },
     ],
   },

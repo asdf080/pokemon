@@ -6,6 +6,7 @@ import { apiGetPokes } from "../utils/api";
 import switchColor from "../utils/switchColor";
 import Loader from "react-spinners/FadeLoader";
 import "./style/Pokemon.css";
+import { BounceLoader } from "react-spinners";
 
 export default function Pokemon() {
   console.clear();
@@ -75,8 +76,6 @@ export default function Pokemon() {
   };
 
   switchColor(세부정보?.color?.name);
-
-  console.log(기본정보);
 
   return (
     <Layout>
@@ -180,6 +179,13 @@ export default function Pokemon() {
             <div className="underWrap">
               <h5>방어 상성</h5>
               <ul className="underList">
+                {상성정보 ? (
+                  ""
+                ) : (
+                  <div id="defenseLoad">
+                    <BounceLoader color="#aaa" />
+                  </div>
+                )}
                 <li>
                   <div className="typesleft">0x</div>
                   <div className="typesWrap">
@@ -187,6 +193,10 @@ export default function Pokemon() {
                       <img key={item.name} className={`${item.name} typeIcon2`} src={`/type/${item.name}.png`} alt={item.name} />
                     ))}
                   </div>
+                </li>
+                <li style={{ padding: "0 10px 0 30px" }}>
+                  <div className="typesleft">0.25x</div>
+                  <div className="typesWrap"></div>
                 </li>
                 <li>
                   <div className="typesleft">0.5x</div>
