@@ -6,6 +6,7 @@ import { apiGetPokes } from "../utils/api";
 import Loader from "react-spinners/FadeLoader";
 import { Link } from "react-router-dom";
 import Layout from "./../components/Layout";
+import { motion } from "framer-motion";
 
 export default function home() {
   const [typenum, setTypenum] = useState(3);
@@ -62,6 +63,12 @@ export default function home() {
     { name: "악", class: "dark" },
     { name: "페어리", class: "fairy" },
   ];
+
+  const pokeCardItem = {
+    start: { y: 70 },
+    end: { y: 0 },
+  };
+
   return (
     <Layout>
       <section id="homePage">
@@ -77,11 +84,11 @@ export default function home() {
             <Loader color="#f2cb55" height={30} margin={20} radius={10} width={10} />
           </div>
         ) : (
-          <main>
+          <motion.main initial="start" animate="end" transition={{ staggerChildren: 0.04 }}>
             {기본정보?.map(
               (item, index) =>
                 item.id < 906 && (
-                  <div id="pokeCardWrap">
+                  <motion.div id="pokeCardWrap" variants={pokeCardItem}>
                     <Link key={index} to={`/pokemon/${item.id}`}>
                       <div className={`pokeCard ${item.types[0]?.type.name}Card`}>
                         <div className="cardTxt">
@@ -98,10 +105,10 @@ export default function home() {
                         <div className="back"></div>
                       </div>
                     </Link>
-                  </div>
+                  </motion.div>
                 )
             )}
-          </main>
+          </motion.main>
         )}
       </section>
     </Layout>

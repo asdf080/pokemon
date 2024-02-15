@@ -13,13 +13,13 @@ export default function Layout({ children }) {
         </h1>
         <ul>
           <li className={pathname === "/" || pathname.includes("pokemon/") ? "active" : ""}>
-            <Link to="/">Pokedex</Link>
+            <Link to="/">도감</Link>
           </li>
           <li className={pathname === "/games" ? "active" : ""}>
-            <Link to="/games">games</Link>
+            <Link to="/games">게임</Link>
           </li>
           <li>
-            <Link to="/games">comunity</Link>
+            <Link to="/games">커뮤니티</Link>
           </li>
         </ul>
       </nav>
