@@ -57,8 +57,8 @@ export default function Layout({ children }) {
           <li className={pathname === "/games" ? "active" : ""}>
             <Link to="/games">게임 시리즈</Link>
           </li>
-          <li>
-            <Link to="/games">커뮤니티</Link>
+          <li className={pathname === "/community" ? "active" : ""}>
+            <Link to="/community">커뮤니티</Link>
           </li>
         </ul>
         <button id="ham" onClick={() => setViewSide(!viewSide)}>
@@ -74,14 +74,30 @@ export default function Layout({ children }) {
                 <Link to="/games">게임 시리즈</Link>
               </motion.div>
               <motion.div className="sideTxt" variants={item}>
-                <Link to="/games">커뮤니티</Link>
+                <Link to="/community">커뮤니티</Link>
               </motion.div>
             </motion.div>
           </motion.aside>
         )}
       </nav>
       {children}
-      <footer></footer>
+      <footer>
+        <p id="footTit">pokedex</p>
+        <div id="footFlex">
+          <a href="https://pokeapi.co/" target="_blank">
+            <p>api</p>
+          </a>
+          <a href="https://pokedex.hybridshivam.com/pokemon" target="_blank">
+            <p>detail page design</p>
+          </a>
+          <a href="https://github.com/IdoBouskila/Pokedex">
+            <p>main page design</p>
+          </a>
+          <a href="https://github.com/asdf080/pokemon">
+            <p>github</p>
+          </a>
+        </div>
+      </footer>
     </>
   );
 }
