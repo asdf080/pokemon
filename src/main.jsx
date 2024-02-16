@@ -7,6 +7,7 @@ import Home from "./routes/Home.jsx";
 import Pokemon from "./routes/Pokemon.jsx";
 import Games from "./routes/Games.jsx";
 import Comm from "./routes/Comm.jsx";
+import Write from "./routes/Write.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
         path: "community",
         element: <Comm />,
       },
+      { path: "community/write", element: <Write /> },
     ],
   },
 ]);

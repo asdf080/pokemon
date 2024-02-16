@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import "./style/Comm.css";
 import { FaComment } from "react-icons/fa";
 import { RiEyeLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const ComItem = (props) => (
   <div className="comItem">
@@ -25,9 +26,18 @@ export default function Comm() {
   return (
     <Layout>
       <section id="comm">
-        <ComItem tit="글 제목" time="12:00" cate="카테고리" re="1" view="2" />
-        <ComItem tit="Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit" time="12:00" cate="카테고리" re="1" view="2" />
-        <ComItem tit="Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit" time="12:00" cate="카테고리" re="1" view="2" />
+        <article>
+          <div id="writeBtnWrap">
+            <div>
+              <Link to="write">
+                <button id="writeBtn">글쓰기</button>
+              </Link>
+            </div>
+          </div>
+          <ComItem tit="글 제목" time="12:00" cate="카테고리" re="1" view="2" />
+          <ComItem tit="Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit" time="12:00" cate="카테고리" re="1" view="2" />
+          <ComItem tit="Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit" time="12:00" cate="카테고리" re="1" view="2" />
+        </article>
       </section>
     </Layout>
   );

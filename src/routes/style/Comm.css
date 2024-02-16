@@ -4,15 +4,38 @@
   margin: 20px auto;
 }
 
-.comItem {
+#comm article {
   max-width: 1200px;
+  margin: auto;
+}
+#writeBtnWrap {
+  display: grid;
+}
+
+#comm article #writeBtnWrap div {
+  justify-self: end;
+}
+
+#comm article #writeBtn {
+  background: #f39c12;
+  font-size: 20px;
+  width: 150px;
+  height: 55px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-size: 21px;
+}
+
+.comItem {
   padding: 15px 0;
   border-bottom: 1px solid lightgray;
-  margin: auto;
 }
 
 .comItem h3 {
   margin-bottom: 10px;
+  font-size: 20px;
 }
 
 .comItemPs {

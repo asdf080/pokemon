@@ -19,7 +19,7 @@ ul {
 .mainLoad {
   z-index: 100;
   width: 90vw;
-  height: 40vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -5,6 +5,7 @@ import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeli
 import "react-vertical-timeline-component/style.min.css";
 import { BsNintendoSwitch } from "react-icons/bs";
 import { SiNintendo3Ds } from "react-icons/si";
+import GoTop from "./../components/GoTop";
 
 const LineEle = (props) => (
   <VerticalTimelineElement className="vertical-timeline-element--work" date={props.date} icon={props.icon} iconStyle={{ background: props.color, color: "#fff" }}>
@@ -17,6 +18,7 @@ export default function Games() {
   return (
     <Layout>
       <section id="gamePage">
+        <GoTop />
         <VerticalTimeline>
           <LineEle date="2022.11" icon={<BsNintendoSwitch />} tit="포켓몬스터 스칼렛·바이올렛" tit2="최초의 오픈월드 작품" p="자유롭게 돌아다닐 수 있는 필드에서 스토리에 의해 정해진 순서가 없는 새로운 스타일의 모험을 체험할 수 있습니다. 포켓몬 트레이너로서 실력을 연마하기 위해 여행하는 모험은 물론, 그 밖에도 수많은 발견과 이야기가 기다리고 있습니다. 다양한 사람이나 포켓몬을 만나며, 자유롭게 「포켓몬스터」의 세계를 모험해 보시기 바랍니다." color="#F7463E" />
           <LineEle date="2022.01" icon={<BsNintendoSwitch />} tit="포켓몬 LEGENDS 아르세우스" tit2="액션과 알피지를 융합한 차별화된 시스템" p="플레이어는 웅대한 자연을 탐험하며 그곳에 서식하는 포켓몬과 만나게 됩니다. 야생 포켓몬의 행동을 관찰하고, 그에 맞는 전략을 짜서 포획하거나 배틀에 도전해보세요." color="#A8D08B" />

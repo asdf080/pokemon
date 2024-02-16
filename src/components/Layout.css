@@ -18,7 +18,7 @@ nav button#ham {
 }
 
 nav h1 a {
-  color: #fec20c;
+  color: #f39c12;
   font-size: 40px;
   font-family: "KBO-Dia-Gothic_bold";
 }
@@ -44,7 +44,7 @@ nav ul li.active::after {
   width: 95%;
   height: 3px;
   left: 3%;
-  background: #fec20c;
+  background: #f39c12;
 }
 
 nav ul li:hover::after {
@@ -54,7 +54,7 @@ nav ul li:hover::after {
   width: 95%;
   height: 3px;
   left: 3%;
-  background: #fec20c;
+  background: #f39c12;
   animation: navLine 0.3s;
 }
 
@@ -63,7 +63,7 @@ nav aside {
 }
 
 footer {
-  border-top: 2px solid #fec20c;
+  border-top: 2px solid #f39c12;
   padding: 10px 50px;
   display: flex;
   align-items: center;
@@ -110,7 +110,7 @@ nav ul li a {
     justify-content: space-between;
   }
   nav h1 a {
-    color: #fec20c;
+    color: #f39c12;
     font-size: 30px;
     font-family: "KBO-Dia-Gothic_bold";
   }

@@ -7,6 +7,7 @@ import Loader from "react-spinners/FadeLoader";
 import { Link } from "react-router-dom";
 import Layout from "./../components/Layout";
 import { motion } from "framer-motion";
+import GoTop from "../components/GoTop";
 
 export default function home() {
   const [typenum, setTypenum] = useState(3);
@@ -72,6 +73,7 @@ export default function home() {
   return (
     <Layout>
       <section id="homePage">
+        <GoTop />
         <header>
           {타입목록.map((type, index) => (
             <button key={index} className={type.class} onClick={() => setTypenum(index + 1)}>
