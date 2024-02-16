@@ -8,6 +8,7 @@ export default function Layout({ children }) {
   const { pathname } = useLocation();
   const [viewSide, setViewSide] = useState(false);
 
+  // aside 있을때 스크롤 막기
   useEffect(() => {
     if (viewSide) {
       document.body.style.overflow = "hidden";
@@ -25,10 +26,7 @@ export default function Layout({ children }) {
     end: { opacity: 1 },
     transition: { duration: 0.2 },
   };
-  const list = {
-    start: { x: 25 },
-    end: { x: 10, transition: { type: "Inertia", staggerChildren: 0.1 } },
-  };
+
   const item = {
     start: {
       y: 50,
@@ -68,7 +66,7 @@ export default function Layout({ children }) {
         </button>
         {viewSide && (
           <motion.aside initial="start" animate="end" variants={back}>
-            <motion.div id="sideTxtWrap" variants={list}>
+            <motion.div id="sideTxtWrap" initial="start" animate="end" transition={{ staggerChildren: 0.1 }}>
               <motion.div className="sideTxt" variants={item}>
                 <Link to="/">도감</Link>
               </motion.div>
