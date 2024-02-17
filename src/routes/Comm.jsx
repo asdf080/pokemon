@@ -7,7 +7,14 @@ import { Link } from "react-router-dom";
 
 const ComItem = (props) => (
   <div className="comItem">
-    <h3>{props.tit}</h3>
+    <Link
+      to={{
+        pathname: `item/${props.index}`,
+        state: { ...props },
+      }}
+    >
+      <h3>{props.tit}</h3>
+    </Link>
     <div className="comItemPs">
       <p>{props.time}</p>
       <div className="itemRi">
@@ -22,6 +29,12 @@ const ComItem = (props) => (
   </div>
 );
 
+const 글리스트 = [
+  { tit: "글제목", content: "글내용", time: "12:00", cate: "카테고리1", re: 1, view: 2 },
+  { tit: "Lorem ipsum dolor sit amet", content: "글내용", time: "12:00", cate: "카테고리2", re: 1, view: 2 },
+  { tit: "consectetur adipiscing elit", content: "글내용", time: "12:00", cate: "카테고리1", re: 1, view: 2 },
+];
+
 export default function Comm() {
   return (
     <Layout>
@@ -34,9 +47,9 @@ export default function Comm() {
               </Link>
             </div>
           </div>
-          <ComItem tit="글 제목" time="12:00" cate="카테고리" re="1" view="2" />
-          <ComItem tit="Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit" time="12:00" cate="카테고리" re="1" view="2" />
-          <ComItem tit="Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit" time="12:00" cate="카테고리" re="1" view="2" />
+          {글리스트.map((item, index) => (
+            <ComItem key={index} index={index} tit={item.tit} time={item.time} cate={item.cate} re={item.re} view={item.view} />
+          ))}
         </article>
       </section>
     </Layout>

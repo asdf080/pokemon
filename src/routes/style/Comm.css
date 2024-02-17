@@ -34,8 +34,13 @@
 }
 
 .comItem h3 {
-  margin-bottom: 10px;
   font-size: 20px;
+  color: black;
+  display: inline-block;
+  padding: 0 15px 10px 0;
+}
+.comItem h3:hover {
+  color: #f39c12;
 }
 
 .comItemPs {

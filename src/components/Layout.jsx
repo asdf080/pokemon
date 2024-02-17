@@ -57,7 +57,7 @@ export default function Layout({ children }) {
           <li className={pathname === "/games" ? "active" : ""}>
             <Link to="/games">게임 시리즈</Link>
           </li>
-          <li className={pathname === "/community" ? "active" : ""}>
+          <li className={pathname.includes("/community") ? "active" : ""}>
             <Link to="/community">커뮤니티</Link>
           </li>
         </ul>
