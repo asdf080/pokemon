@@ -53,19 +53,21 @@ export default function Pokemon() {
   const 특성 = abilityQueries?.map((result) => result.data ?? {});
 
   const 최대스탯 = 기본정보?.stats?.reduce((max, item) => Math.max(max, item.base_stat), 0);
-  const 이미지주소 = (id) => {
-    return `https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/${id?.padStart(3, "0")}.png`;
-  };
-  const [sprImg, setSprImg] = useState(이미지주소(id));
+
+  const [sprImg, setSprImg] = useState("");
+  const 이미지주소 = `https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/${id?.padStart(3, "0")}${sprImg}.png`;
 
   switchColor(세부정보?.color?.name);
 
-  function 형태변환이미지(name) {
+  function 형태변환(name) {
     const parts = name.split("-").slice(1); // 이명 추출
     if (!parts.length) return name; // 이명 없으면 원본 반환
-    return parts
-      .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase()) // 대문자로
-      .join("-");
+    return (
+      "-" +
+      parts
+        .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase()) // 대문자로
+        .join("-")
+    );
   }
 
   return (
@@ -106,14 +108,25 @@ export default function Pokemon() {
               </div>
               <div className="leftTit">형태</div>
               <div className="leftTxt">
-                {세부정보?.varieties.map((item, index) => (
-                  <p key={index} className="variIcon">
+                <p className="variIcon" onClick={() => setSprImg("")}>
+                  {세부정보?.names?.find((item) => item.language?.name == "ko")?.name || 기본정보?.name}
+                </p>
+                {세부정보?.varieties.slice(1).map((item, index) => (
+                  <p key={index} className="variIcon" onClick={() => setSprImg(형태변환(item.pokemon.name))}>
                     {item.pokemon.name.replace(기본정보.name, 세부정보?.names?.find((item) => item.language.name == "ko")?.name || 기본정보.name)}
                   </p>
                 ))}
               </div>
             </div>
-            <img key={id} src={`${이미지주소(id)}`} alt="artwork" />
+            <img
+              key={id}
+              src={이미지주소}
+              alt="artwork"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = "http://via.placeholder.com/500x500";
+              }}
+            />
             <div id="rightTxtWrap">
               <div id="rightTxtWrapInner">
                 {기본정보?.stats?.map((item, index) => (

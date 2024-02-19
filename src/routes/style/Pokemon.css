@@ -97,6 +97,7 @@ article#detail1 #leftTxtWrap .leftTxt .abilIcon1,
 }
 
 article#detail1 #leftTxtWrap .leftTxt .variIcon {
+  cursor: pointer;
   padding: 2px 7px;
   border-radius: 5px;
   font-weight: bold;
