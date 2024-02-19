@@ -33,7 +33,7 @@ const router = createBrowserRouter([
         element: <Comm />,
       },
       { path: "community/write", element: <Write /> },
-      { path: "community/item/:id", element: <Item /> },
+      { path: "community/item/:index", element: <Item /> },
     ],
   },
 ]);

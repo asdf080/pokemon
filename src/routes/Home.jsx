@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import Layout from "./../components/Layout";
 import { motion } from "framer-motion";
 import GoTop from "../components/GoTop";
+import { 타입목록 } from "../lib/names";
 
 export default function home() {
   const [typenum, setTypenum] = useState(3);
@@ -44,26 +45,6 @@ export default function home() {
         })) ?? [],
   });
   const 세부정보 = queryResults.map((result) => result.data ?? {});
-  const 타입목록 = [
-    { name: "노말", class: "normal" },
-    { name: "격투", class: "fighting" },
-    { name: "비행", class: "flying" },
-    { name: "독", class: "poison" },
-    { name: "땅", class: "ground" },
-    { name: "바위", class: "rock" },
-    { name: "벌레", class: "bug" },
-    { name: "고스트", class: "ghost" },
-    { name: "강철", class: "steel" },
-    { name: "불꽃", class: "fire" },
-    { name: "물", class: "water" },
-    { name: "풀", class: "grass" },
-    { name: "전기", class: "electric" },
-    { name: "에스퍼", class: "psychic" },
-    { name: "얼음", class: "ice" },
-    { name: "드래곤", class: "dragon" },
-    { name: "악", class: "dark" },
-    { name: "페어리", class: "fairy" },
-  ];
 
   const pokeCardItem = {
     start: { y: 70 },
@@ -99,8 +80,8 @@ export default function home() {
                             <p className="txtName">{세부정보?.[index].names?.find((item) => item.language.name === "ko")?.name}</p>
                           </div>
                           <div className="txtType">
-                            <p className={item.types[0]?.type.name}>{item.types[0]?.type.name}</p>
-                            <p className={item.types[1]?.type.name || ""}>{item.types[1]?.type.name || ""}</p>
+                            <p className={item.types[0]?.type.name}>{타입목록.find((타입) => 타입.class === item.types[0]?.type.name).name}</p>
+                            <p className={item.types[1]?.type.name || ""}>{타입목록.find((타입) => 타입.class === item.types[1]?.type?.name)?.name || ""}</p>
                           </div>
                         </div>
                         <img src={item.sprites.other[`official-artwork`]?.front_default || item.sprites.other[`dream_world`]?.front_default || ""} alt={item.name} />

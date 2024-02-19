@@ -1,0 +1,35 @@
+#comItem {
+  max-width: 1200px;
+  margin: 50px auto;
+}
+
+#comItem article {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+#comItem article h3 {
+  font-size: 30px;
+}
+
+#comItem article #titDetail {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  color: gray;
+}
+
+#comItem article #titDetail div {
+  display: flex;
+  gap: 10px;
+}
+
+#comItem article #titDetail span {
+  display: flex;
+  align-items: center;
+}
+
+#comItem article #content {
+  margin: 10px 0;
+  font-size: 20px;
+}

@@ -7,6 +7,7 @@ import switchColor from "../utils/switchColor";
 import Loader from "react-spinners/FadeLoader";
 import "./style/Pokemon.css";
 import { BounceLoader } from "react-spinners";
+import { 타입목록 } from "../lib/names";
 
 export default function Pokemon() {
   console.clear();
@@ -107,8 +108,8 @@ export default function Pokemon() {
               </div>
               <div className="leftTit">타입</div>
               <div className="leftTxt">
-                <p className={`${기본정보?.types[0].type.name} typeIcon`}>{기본정보?.types[0].type.name}</p>
-                <p className={`${기본정보?.types[1]?.type.name || ""} typeIcon`}>{기본정보?.types[1]?.type.name || null}</p>
+                <p className={`${기본정보?.types[0].type.name} typeIcon`}>{타입목록.find((타입) => 타입.class === 기본정보?.types[0].type.name).name}</p>
+                <p className={`${기본정보?.types[1]?.type.name || ""} typeIcon`}>{타입목록.find((타입) => 타입.class === 기본정보?.types[1]?.type.name)?.name || null}</p>
               </div>
               <div className="leftTit">형태</div>
               <div className="leftTxt">
