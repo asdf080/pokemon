@@ -70,6 +70,8 @@ export default function Pokemon() {
     );
   }
 
+  console.log(기본정보);
+
   return (
     <Layout>
       {기본로딩중 ? (

@@ -114,8 +114,8 @@ article#detail1 #leftTxtWrap .leftTxt .variIcon {
   padding: 5px;
   margin: 5px;
   font-weight: bold;
-  border: 2px solid gray;
   border-radius: 5px;
+  box-shadow: 0 0 10px 0 rgb(216, 216, 216);
 }
 
 article#detail1 #leftTxtWrap button {

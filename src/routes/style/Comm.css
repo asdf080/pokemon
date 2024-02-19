@@ -10,6 +10,7 @@
 }
 #writeBtnWrap {
   display: grid;
+  margin: 20px 0;
 }
 
 #comm article #writeBtnWrap div {
@@ -26,6 +27,13 @@
   border: none;
   color: white;
   font-size: 21px;
+  box-shadow: 4px 4px 0 2px #ffc466;
+  transition: all 0.2s;
+}
+
+#comm article #writeBtn:hover {
+  box-shadow: none;
+  transform: translate(4px, 4px);
 }
 
 .comItem {

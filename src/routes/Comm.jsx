@@ -5,6 +5,7 @@ import { FaComment } from "react-icons/fa";
 import { RiEyeLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { 글리스트 } from "../lib/ComItem";
+import { FaPenAlt } from "react-icons/fa";
 
 const ComItem = (props) => (
   <div className="comItem">
@@ -33,7 +34,9 @@ export default function () {
           <div id="writeBtnWrap">
             <div>
               <Link to="write">
-                <button id="writeBtn">글쓰기</button>
+                <button id="writeBtn">
+                  <FaPenAlt /> 글쓰기
+                </button>
               </Link>
             </div>
           </div>

@@ -1,7 +1,7 @@
 #comItem {
   max-width: 1200px;
-  margin: 50px auto 100px;
-  min-height: 80vh;
+  margin: 50px auto;
+  min-height: 70vh;
 }
 
 #comItem article {
@@ -35,10 +35,31 @@
 }
 #comItem article #content {
   font-size: 22px;
+  min-height: 50vh;
+  margin: 0 0 80px;
 }
 
 #comItem article #content img {
   max-width: 100%;
+}
+
+#comItem article button {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 15px;
+  background: #f39c12;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 3px 3px 0 2px #ffc466;
+  transition: all 0.2s;
+}
+
+#comItem article button:hover {
+  box-shadow: none;
+  transform: translate(3px, 3px);
 }
 
 @media screen and (max-width: 900px) {

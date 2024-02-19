@@ -1,10 +1,11 @@
 import React from "react";
 import Layout from "../components/Layout";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { 글리스트 } from "../lib/ComItem";
 import "./style/Item.css";
 import { FaComment } from "react-icons/fa";
 import { RiEyeLine } from "react-icons/ri";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 export default function Item() {
   const { index: pageIndex } = useParams();
@@ -29,9 +30,14 @@ export default function Item() {
           </div>
           <hr />
           <div id="content">
-            <img src={글데이터.img} alt="img" />
-            <div>{글데이터.content}</div>
+            {글데이터.img.length > 0 && 글데이터.img.map((img, index) => <img key={index} src={`${img}`} alt="img" />)}
+            <div dangerouslySetInnerHTML={{ __html: 글데이터.content }}></div>
           </div>
+          <Link to="/community">
+            <button>
+              <IoMdArrowRoundBack /> 돌아가기
+            </button>
+          </Link>
         </article>
       </section>
     </Layout>
