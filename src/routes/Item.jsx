@@ -8,9 +8,7 @@ import { RiEyeLine } from "react-icons/ri";
 
 export default function Item() {
   const { index: pageIndex } = useParams();
-  console.log(pageIndex);
   const 글데이터 = 글리스트[pageIndex];
-  console.log(글데이터);
 
   return (
     <Layout>
@@ -30,7 +28,10 @@ export default function Item() {
             </div>
           </div>
           <hr />
-          <div id="content">{글데이터.content}</div>
+          <div id="content">
+            <img src={글데이터.img} alt="img" />
+            <div>{글데이터.content}</div>
+          </div>
         </article>
       </section>
     </Layout>

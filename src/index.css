@@ -16,6 +16,10 @@ ul {
   list-style: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 .mainLoad {
   z-index: 100;
   width: 90vw;

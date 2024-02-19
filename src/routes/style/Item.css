@@ -1,6 +1,7 @@
 #comItem {
   max-width: 1200px;
-  margin: 50px auto;
+  margin: 50px auto 100px;
+  min-height: 80vh;
 }
 
 #comItem article {
@@ -9,7 +10,7 @@
 }
 
 #comItem article h3 {
-  font-size: 30px;
+  font-size: 32px;
 }
 
 #comItem article #titDetail {
@@ -29,7 +30,19 @@
   align-items: center;
 }
 
+#comItem article hr {
+  margin: 20px 0;
+}
 #comItem article #content {
-  margin: 10px 0;
-  font-size: 20px;
+  font-size: 22px;
+}
+
+#comItem article #content img {
+  max-width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  #comItem article {
+    padding: 0 10px;
+  }
 }

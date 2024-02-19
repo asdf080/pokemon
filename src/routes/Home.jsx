@@ -11,7 +11,7 @@ import GoTop from "../components/GoTop";
 import { 타입목록 } from "../lib/names";
 
 export default function home() {
-  const [typenum, setTypenum] = useState(3);
+  const [typenum, setTypenum] = useState(11);
   const { data: 기본정보, isLoading: 기본정보로딩중 } = useQuery({
     queryKey: ["pokesmons", `type/${typenum}`],
     queryFn: async () => {
