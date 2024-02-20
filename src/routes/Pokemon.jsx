@@ -29,9 +29,17 @@ export default function Pokemon() {
       try {
         const data = await fetch(기본정보?.types?.[1].type.url || 기본정보?.types?.[0].type.url).then((res) => res.json());
         return data;
-      } catch (error) {
-        console.log(기본정보?.types?.[1].url || 기본정보?.types?.[0].url);
-      }
+      } catch (error) {}
+    },
+  });
+
+  const { data: 아이템정보 } = useQuery({
+    queryKey: ["pokeItemInfo", id],
+    queryFn: async () => {
+      try {
+        const data = await fetch(기본정보?.held_items?.[0].item.url).then((res) => res.json());
+        return data;
+      } catch (error) {}
     },
   });
 
@@ -69,8 +77,6 @@ export default function Pokemon() {
         .join("-")
     );
   }
-
-  console.log(기본정보);
 
   return (
     <Layout>
@@ -152,7 +158,7 @@ export default function Pokemon() {
               <h5>세부 정보</h5>
               <div className="underTxt">
                 <div className="underTit">소지 아이템</div>
-                <div>{기본정보?.held_items?.[0]?.item?.name || "없음"}</div>
+                <div>{아이템정보?.names?.find((item) => item.language.name === "ko").name || 기본정보?.held_items?.[0]?.item?.name || "없음"}</div>
                 <div className="underTit">서식지</div>
                 <div>{서식지이름[세부정보?.habitat?.name] || "-"}</div>
                 <div className="underTit">색상</div>
