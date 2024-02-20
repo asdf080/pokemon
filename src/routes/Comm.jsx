@@ -41,7 +41,7 @@ export default function () {
             </div>
           </div>
           {글리스트.map((item, index) => (
-            <ComItem key={index} index={index} tit={item.tit} time={item.time} cate={item.cate} re={item.re} view={item.view} />
+            <ComItem key={index} index={index} tit={item.tit} time={item.time} re={item.re} view={item.view} />
           ))}
         </article>
       </section>

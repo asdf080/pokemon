@@ -72,7 +72,7 @@ export default function home() {
               (item, index) =>
                 item.id < 906 && (
                   <motion.div id="pokeCardWrap" variants={pokeCardItem} key={index}>
-                    <Link to={`/pokemon/${item.id}`}>
+                    <Link to={`/pokemon/${item.id}`} target="_blank">
                       <div className={`pokeCard ${item.types[0]?.type.name}Card`}>
                         <div className="cardTxt">
                           <div>

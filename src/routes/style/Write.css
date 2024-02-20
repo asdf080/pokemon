@@ -1,0 +1,57 @@
+#writeSect {
+  min-height: 60vh;
+}
+
+#writeSect form {
+  max-width: 900px;
+  margin: 105px auto;
+}
+
+#writeSect form input,
+#writeSect form textarea {
+  font-size: 20px;
+  padding: 15px;
+  width: 100%;
+  max-width: 900px;
+  outline: none;
+  border-radius: 10px;
+}
+
+#writeSect form input {
+  border: none;
+  background: rgb(241, 241, 241);
+}
+#writeSect form input:focus {
+  outline: 2px solid rgb(226, 226, 226);
+}
+
+#writeSect form textarea {
+  border: 2px solid rgb(226, 226, 226);
+  margin: 30px 0;
+  height: 400px;
+}
+
+#writeSect form button {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 30px;
+  background: #f39c12;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 3px 3px 0 2px #ffc466;
+  transition: all 0.2s;
+}
+
+#writeSect form button:hover {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+@media screen and (max-width: 900px) {
+  #writeSect form {
+    padding: 0 10px;
+  }
+}

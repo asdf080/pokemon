@@ -10,6 +10,7 @@ body {
   width: 90%;
   max-width: 750px;
   margin: 100px auto;
+  user-select: none;
 }
 
 #homePage header button {
@@ -32,6 +33,7 @@ body {
   gap: 40px;
   flex-wrap: wrap;
   justify-content: center;
+  user-select: none;
 }
 
 #homePage main #pokeCardWrap {
