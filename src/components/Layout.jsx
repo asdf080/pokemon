@@ -87,6 +87,9 @@ export default function Layout({ children }) {
           <a href="https://pokeapi.co/" target="_blank">
             <p>api</p>
           </a>
+          <a href="https://github.com/HybridShivam/Pokemon" target="_blank">
+            <p>sprite Api</p>
+          </a>
           <a href="https://pokedex.hybridshivam.com/pokemon" target="_blank">
             <p>detail page design</p>
           </a>
