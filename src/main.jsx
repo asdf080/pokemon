@@ -9,12 +9,13 @@ import Games from "./routes/Games.jsx";
 import Comm from "./routes/Comm.jsx";
 import Write from "./routes/Write.jsx";
 import Item from "./routes/Item.jsx";
+import NotFound from "./routes/NotFound.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Outlet />,
-    // errorElement: <NotFound />,
+    errorElement: <NotFound />,
     children: [
       {
         path: "",
