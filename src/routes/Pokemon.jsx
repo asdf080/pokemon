@@ -77,6 +77,7 @@ export default function Pokemon() {
         .join("-")
     );
   }
+  console.log(세부정보);
 
   return (
     <Layout>

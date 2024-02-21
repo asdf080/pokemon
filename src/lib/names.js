@@ -36,7 +36,7 @@ export const 알그룹 = {
   humanshape: "인간형",
 };
 
-export const 색상이름 = { red: "빨간색", white: "하얀색", green: "초록색", blue: "파란색", yellow: "노란색", purple: "보라색", pink: "분홍색", brown: "갈색" };
+export const 색상이름 = { red: "빨간색", white: "하얀색", green: "초록색", blue: "파란색", yellow: "노란색", purple: "보라색", pink: "분홍색", brown: "갈색", black: "검정색" };
 
 export const 서식지이름 = { cave: "동굴", forest: "숲", grassland: "초원", mountain: "산", rare: "굴", "rough-terrain": "거친 지역", sea: "바다", urban: "도시", "waters-edge": "물가" };
 

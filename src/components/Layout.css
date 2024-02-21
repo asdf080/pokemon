@@ -76,6 +76,9 @@ footer a {
   text-transform: capitalize;
   color: black;
 }
+footer a:hover {
+  text-decoration: underline;
+}
 
 footer #footTit {
   font-size: 24px;
@@ -86,7 +89,7 @@ footer #footTit {
 footer #footFlex {
   display: flex;
   font-size: 18px;
-  gap: 5px 20px;
+  gap: 5px 30px;
   flex-wrap: wrap;
   align-items: center;
 }
