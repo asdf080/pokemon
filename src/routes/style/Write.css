@@ -18,17 +18,19 @@
 }
 
 #writeSect form input {
-  border: none;
-  background: rgb(241, 241, 241);
+  border: 2px solid rgb(226, 226, 226);
 }
 #writeSect form input:focus {
-  outline: 2px solid rgb(226, 226, 226);
+  background: rgb(241, 241, 241);
 }
 
 #writeSect form textarea {
   border: 2px solid rgb(226, 226, 226);
   margin: 30px 0;
   height: 400px;
+}
+#writeSect form textarea:focus {
+  background: rgb(241, 241, 241);
 }
 
 #writeSect form button {
