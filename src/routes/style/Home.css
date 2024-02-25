@@ -50,6 +50,11 @@ body {
   height: 220px;
 }
 
+#homePage main .pokeCard:hover {
+  transform: translateY(-15px);
+  transition: all 0.2s;
+}
+
 #homePage main .pokeCard .cardTxt {
   display: flex;
   flex-direction: column;
