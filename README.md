@@ -1,13 +1,12 @@
-# Portfolio
+# Pokemon
 
-※ SUPER AWESOME UI DESIGN
-[Main Page](https://github.com/IdoBouskila/Pokedex)      [Sub page](https://github.com/HybridShivam/pokedex-angular-app)
+※ SUPER AWESOME UI DESIGN [Main Page](https://github.com/IdoBouskila/Pokedex)  [Sub page](https://github.com/HybridShivam/pokedex-angular-app)
 
 ### 🔗링크
 https://pokemon-08.netlify.app/
 
 ### 🔎소개
-포켓몬 도감 사이트입니다.
+포켓몬 api로 만든 포켓몬 도감 사이트입니다.
 
 ### 📅제작 기간
 2024.02.06 ~ 24.02.26
